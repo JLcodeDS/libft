@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonathanludolph1 <jonathanludolph1@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/25 12:47:17 by jonathanlud       #+#    #+#             */
-/*   Updated: 2026/03/25 12:47:28 by jonathanlud      ###   ########.fr       */
+/*   Created: 2026/03/25 12:15:25 by jonathanlud       #+#    #+#             */
+/*   Updated: 2026/03/25 12:15:28 by jonathanlud      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdio.h>
 
-int	ft_strlen(const char *s)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	new -> next = *lst;
+	*lst = new;
 }
-
-// int main()
-// {
-// 	printf("%d\n", ft_strlen("hello"));
-// }

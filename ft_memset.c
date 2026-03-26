@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonathanludolph1 <jonathanludolph1@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/25 12:47:17 by jonathanlud       #+#    #+#             */
-/*   Updated: 2026/03/25 12:47:28 by jonathanlud      ###   ########.fr       */
+/*   Created: 2026/03/25 12:22:08 by jonathanlud       #+#    #+#             */
+/*   Updated: 2026/03/25 12:24:03 by jonathanlud      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_strlen(const char *s)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int	i;
+	unsigned char	uc;
+	unsigned long	i;
+	unsigned char	*bu;
 
+	uc = c;
 	i = 0;
-	while (s[i])
+	bu = (unsigned char *)b;
+	while (i < len)
+	{
+		*bu++ = uc;
 		i++;
-	return (i);
+	}
+	return (b);
 }
 
 // int main()
 // {
-// 	printf("%d\n", ft_strlen("hello"));
+// 	char b[20];
+// 	ft_memset(b, 123, 26);
+// 	printf("%s\n", b);
 // }

@@ -1,28 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonathanludolph1 <jonathanludolph1@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/25 12:47:17 by jonathanlud       #+#    #+#             */
-/*   Updated: 2026/03/25 12:47:28 by jonathanlud      ###   ########.fr       */
+/*   Created: 2026/03/25 12:43:40 by jonathanlud       #+#    #+#             */
+/*   Updated: 2026/03/25 12:44:18 by jonathanlud      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
 
-int	ft_strlen(const char *s)
+char	*ft_strdup(const char *s1)
 {
-	int	i;
+	int		i;
+	char	*s2;
 
 	i = 0;
-	while (s[i])
+	while (s1[i])
 		i++;
-	return (i);
+	s2 = malloc((i + 1) * sizeof(char));
+	if (!s2)
+		return (NULL);
+	i = 0;
+	while (s1[i])
+	{
+		s2[i] = s1[i];
+		i++;
+	}
+	s2[i] = '\0';
+	return (s2);
 }
 
 // int main()
 // {
-// 	printf("%d\n", ft_strlen("hello"));
+// 	char s1[5] = "heyo";
+// 	char *s2 = ft_strdup(s1);
+// 	printf("%s %s\n", s1, s2);
+// 	free(s2);
 // }

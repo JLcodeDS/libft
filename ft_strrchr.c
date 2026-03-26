@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonathanludolph1 <jonathanludolph1@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/25 12:47:17 by jonathanlud       #+#    #+#             */
-/*   Updated: 2026/03/25 12:47:28 by jonathanlud      ###   ########.fr       */
+/*   Created: 2026/03/25 12:50:29 by jonathanlud       #+#    #+#             */
+/*   Updated: 2026/03/25 12:50:41 by jonathanlud      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_strlen(const char *s)
+char	*ft_strrchr(char *s, int c)
 {
 	int	i;
 
 	i = 0;
 	while (s[i])
 		i++;
-	return (i);
+	if (c == '\0')
+		return (s);
+	while (i > 0)
+	{
+		if (s[i] == c)
+			return (&s[i]);
+		i--;
+	}
+	return (NULL);
 }
 
 // int main()
 // {
-// 	printf("%d\n", ft_strlen("hello"));
+// 	printf("%s\n", ft_strrchr("helloheyo", '\0'));
 // }

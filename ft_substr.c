@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonathanludolph1 <jonathanludolph1@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/25 12:47:17 by jonathanlud       #+#    #+#             */
-/*   Updated: 2026/03/25 12:47:28 by jonathanlud      ###   ########.fr       */
+/*   Created: 2026/03/25 12:52:39 by jonathanlud       #+#    #+#             */
+/*   Updated: 2026/03/25 12:52:50 by jonathanlud      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
 
-int	ft_strlen(const char *s)
+char	*ft_substr(char const *s, unsigned int start,size_t len)
 {
-	int	i;
+	unsigned int	i;
+	unsigned int	j;
+	char			*s2;
 
-	i = 0;
-	while (s[i])
+	i = start;
+	j = 0;
+	while (s[i] && i < start + len)
 		i++;
-	return (i);
+	s2 = malloc((i - start + 1)  * sizeof(char));
+	while (start < i)
+	{
+		s2[j++] = s[start++];
+	}
+	s2[j] = '\0';
+	return (s2);
 }
 
 // int main()
 // {
-// 	printf("%d\n", ft_strlen("hello"));
+// 	char s1[10] = "012345678";
+// 	char *s2 = ft_substr(s1, 3, 10);
+// 	printf("%s %s\n", s1, s2);
+// 	free(s2);
 // }

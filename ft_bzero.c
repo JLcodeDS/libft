@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonathanludolph1 <jonathanludolph1@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/25 12:47:17 by jonathanlud       #+#    #+#             */
-/*   Updated: 2026/03/25 12:47:28 by jonathanlud      ###   ########.fr       */
+/*   Created: 2026/03/25 12:00:18 by jonathanlud       #+#    #+#             */
+/*   Updated: 2026/03/25 12:01:26 by jonathanlud      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_strlen(const char *s)
+void	ft_bzero(void *s, size_t n)
 {
-	int	i;
+	unsigned char	*str;
+	size_t			i;
 
+	str = (unsigned char *)s;
 	i = 0;
-	while (s[i])
+	while (i < n)
+	{
+		str[i] = 0;
 		i++;
-	return (i);
+	}
 }
 
 // int main()
 // {
-// 	printf("%d\n", ft_strlen("hello"));
+// 	char s[5] = "hello";
+// 	ft_bzero(s+3, 3);
+// 	printf("%s\n", s);
 // }

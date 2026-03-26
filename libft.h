@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonathanludolph1 <jonathanludolph1@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/25 12:47:17 by jonathanlud       #+#    #+#             */
-/*   Updated: 2026/03/25 12:47:28 by jonathanlud      ###   ########.fr       */
+/*   Created: 2026/03/25 12:53:35 by jonathanlud       #+#    #+#             */
+/*   Updated: 2026/03/25 12:54:26 by jonathanlud      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#ifndef LIBFT_H
+# define LIBFT_H
 
-int	ft_strlen(const char *s)
+int	ft_strlen(const char *s);
+
+typedef struct s_list
 {
-	int	i;
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-// int main()
-// {
-// 	printf("%d\n", ft_strlen("hello"));
-// }
+#endif

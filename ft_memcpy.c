@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonathanludolph1 <jonathanludolph1@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/25 12:47:17 by jonathanlud       #+#    #+#             */
-/*   Updated: 2026/03/25 12:47:28 by jonathanlud      ###   ########.fr       */
+/*   Created: 2026/03/25 12:19:48 by jonathanlud       #+#    #+#             */
+/*   Updated: 2026/03/25 12:20:51 by jonathanlud      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_strlen(const char *s)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int	i;
+	char	*udst;
+	char	*usrc;
+	size_t	i;
 
 	i = 0;
-	while (s[i])
+	udst = (char *)dst;
+	usrc = (char *)src;
+	while (i < n)
+	{
+		udst[i] = usrc[i];
 		i++;
-	return (i);
+	}
+	return (dst);
 }
 
 // int main()
 // {
-// 	printf("%d\n", ft_strlen("hello"));
+// 	char dst[2];
+// 	char src[6] = "hello";
+// 	printf("%s\n", ft_memcpy(dst, src, 3));
 // }

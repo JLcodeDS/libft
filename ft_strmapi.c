@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonathanludolph1 <jonathanludolph1@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/25 12:47:17 by jonathanlud       #+#    #+#             */
-/*   Updated: 2026/03/25 12:47:28 by jonathanlud      ###   ########.fr       */
+/*   Created: 2026/03/25 12:47:36 by jonathanlud       #+#    #+#             */
+/*   Updated: 2026/03/25 12:48:26 by jonathanlud      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include "libft.h"
 
-int	ft_strlen(const char *s)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	i;
+	unsigned int	i;
+	unsigned int	len;
+	char			*s1;
 
 	i = 0;
+	len = ft_strlen(s);
+	s1 = malloc((len + 1) * sizeof(char));
+	if (!s1)
+		return (NULL);
 	while (s[i])
+	{
+		s1[i] = f(i, s[i]);
 		i++;
-	return (i);
+	}
+	s1[i] = '\0';
+	return (s1);
 }
-
-// int main()
-// {
-// 	printf("%d\n", ft_strlen("hello"));
-// }
